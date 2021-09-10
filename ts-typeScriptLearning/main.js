@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+var facebookLikes_1 = require("./facebookLikes");
+var button1 = new facebookLikes_1.FacebookLikeButton();
+button1.like();
+button1.like();
+console.log(button1.Likes);
+var button2 = new facebookLikes_1.FacebookLikeButton(324);
+button2.unlike();
+console.log(button2.Likes);
