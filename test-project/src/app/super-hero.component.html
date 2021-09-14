@@ -1,6 +1,22 @@
-<strong>{{ "These are your " + heroes.length + " " + title}}</strong>
-<ul>
-    <li *ngFor="let superHero of heroes">
-        {{superHero}}
-    </li>
-</ul>
+<strong>{{ "These are your " + heroes.length + " " + title}}</strong> <br>
+<img [src]="imageURL" />
+<br>
+{{whatIsAHero | shorten:9}}
+<table>
+    <ul>
+        <tr><li *ngFor="let superHero of heroes">
+            <td > Hero:</td>
+            <td>{{superHero}}</td>
+        </li>
+        </tr>
+    </ul>
+</table>
+<div (click)="onDivClicked()">
+    <button (click)="onClickMe($event)" [style.background-color]="blue ? '#00f':'#000'" class="btn btn-primary">Click Me!</button>
+</div>
+<input [(ngModel)]="dummyText" (keyup.enter)="onKeyUp()"/>
+<h2>But my favourite superhero is: {{hero.name | lowercase}}</h2>
+<br>Rating out of 10: {{hero.rating | number:'1.2-2'}}
+<br>Attack Strength out of 1,000,000: {{hero.attackStrength | number}}
+<br>Defend Strength out of 1,000,000: {{hero.defendStrength | number}}
+<br>Date of Birth: {{hero.birthday | date:'short'}}

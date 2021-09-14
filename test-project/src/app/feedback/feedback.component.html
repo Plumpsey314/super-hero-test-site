@@ -1,0 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<h2>What did you think of this app?</h2>
+<input [(ngModel)]="feedbackText" (keyup)="updateFeedbackText($event)">
+{{feedbackText | titleCase}}
+<div (click)="toggleReview()"> <span class="{{iconClass}}" ></span></div>
