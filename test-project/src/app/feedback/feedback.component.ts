@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'feedback',
@@ -8,25 +8,21 @@ import { Component } from '@angular/core';
 export class FeedbackComponent{
 
   feedbackText: string;
-  iconClass : string;
-  private goodReview: boolean;
+  @Input('goodReview') checkedReview!: boolean;
+  @Output('change') click = new EventEmitter();
 
   constructor() {
     this.feedbackText="";
-    this.iconClass = "glyphicon glyphicon-ok"
-    this.goodReview = false;
   }
 
   toggleReview(){
-    this.goodReview = !this.goodReview;
-    if (this.iconClass === "glyphicon glyphicon-ok"){
-      this.iconClass = "glyphicon glyphicon-remove"
-    }else{
-      this.iconClass = "glyphicon glyphicon-ok"
-    }
-
+    this.checkedReview = !this.checkedReview;
+    this.click.emit({checked:this.checkedReview});
   }
 
   updateFeedbackText($event: any){}
 
+}
+export interface feedbackData {
+  checked: boolean
 }

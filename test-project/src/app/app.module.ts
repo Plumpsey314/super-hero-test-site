@@ -11,6 +11,8 @@ import { SuperVillainComponent } from './super-villain/super-villain.component';
 import { SuperVillainService } from './super-villain/super-villain.service';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MyTitleCasePipe } from './feedback/myTitleCase.pipe';
+import { LocationComponent } from './location/location.component';
+import { SupermanFeedbackComponent } from './superman-feedback/superman-feedback.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MyTitleCasePipe } from './feedback/myTitleCase.pipe';
     SuperVillainComponent,
     ShortenPipe,
     FeedbackComponent,
-    MyTitleCasePipe
+    MyTitleCasePipe,
+    LocationComponent,
+    SupermanFeedbackComponent
   ],
   imports: [
     BrowserModule,

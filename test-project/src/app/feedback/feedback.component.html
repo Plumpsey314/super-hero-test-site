@@ -2,4 +2,6 @@
 <h2>What did you think of this app?</h2>
 <input [(ngModel)]="feedbackText" (keyup)="updateFeedbackText($event)">
 {{feedbackText | titleCase}}
-<div (click)="toggleReview()"> <span class="{{iconClass}}" ></span></div>
+<div> 
+    <span checkbox class="glyphicon" [class.glyphicon-ok]="checkedReview" [class.glyphicon-remove]="!checkedReview" (click)="toggleReview()"></span>
+</div>

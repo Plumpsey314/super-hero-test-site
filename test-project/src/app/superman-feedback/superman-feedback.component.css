@@ -1,0 +1,14 @@
+.glyphicon{
+    background-color: #003
+}
+
+.selected{
+    color: #f00;
+}
+.not-selected{
+    color: #ff9;
+}
+
+.glyphicon:hover{
+    cursor: pointer;
+}

@@ -18,7 +18,6 @@ export class MyTitleCasePipe implements PipeTransform{
         for(let i = 0; i < words.length; i++){
             let word = words[i];
             word = word.toLowerCase();
-            console.log(word);
             if(word == "the" || word == "of"){
                 if(i === 0){
                     word = word.substring(0,1).toUpperCase()+word.substring(1,word.length);

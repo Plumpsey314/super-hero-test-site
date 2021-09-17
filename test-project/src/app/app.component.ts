@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { feedbackData } from './feedback/feedback.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular test-project';
+
+  post = {
+    title: this.title,
+    goodReview: true,
+    numberOfVotes: 1040
+  }
+
+  onFeedbackChange(args: feedbackData){
+    console.log(args);
+  }
 }

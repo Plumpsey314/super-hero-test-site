@@ -1,4 +1,16 @@
-<h1>Angular</h1>
+<h1>{{title}}</h1>
+<h2>Heroes and Villians</h2>
 <hero></hero>
 <villain></villain>
-<feedback></feedback>
+<feedback [goodReview]="post.goodReview" (change)="onFeedbackChange($event)"></feedback>
+<span class="glyphicon glyphicon-user"></span>
+<bootstrap-location >
+    <ng-container id="location">
+        <h2>Titan</h2>
+    </ng-container>
+    <div id="location-description">
+        <p>Titan is the planet where Thanos is from</p>
+        <strong>marvel</strong>
+    </div>
+</bootstrap-location>
+<superman-feedback [votes]="post.numberOfVotes"></superman-feedback>
