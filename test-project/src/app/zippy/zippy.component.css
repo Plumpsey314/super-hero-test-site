@@ -1,0 +1,12 @@
+.large{
+    font-size:x-large;
+    grid-column: 1;
+    width: 50%
+}
+.zippy-container{
+    display: grid;
+    grid-template-columns: 70% 10%;
+}
+.glyphicon{
+    grid-column: 2;
+}

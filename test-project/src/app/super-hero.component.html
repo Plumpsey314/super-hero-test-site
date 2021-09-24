@@ -1,22 +1,30 @@
 <strong>{{ "These are your " + heroes.length + " " + title}}</strong> <br>
 <img [src]="imageURL" />
 <br>
-{{whatIsAHero | shorten:9}}
+{{whatAreMyHeroes | shorten:9}}
+<br>
+<button (click)="addHero()" [style.background-color]="blue ? '#00f':'#000'" class="btn btn-primary">Add hero</button>
 <table>
     <ul>
-        <tr><li *ngFor="let superHero of heroes">
-            <td > Hero:</td>
-            <td>{{superHero}}</td>
-        </li>
-        </tr>
+        <tr><li *ngFor="let hero of heroes; even as isEven; trackBy: trackHero">
+            <td > <h2>Hero: </h2></td>
+            <td>
+                <h2>{{hero.name | lowercase}}</h2>
+                <br>Rating out of 10: {{hero.rating | number:'1.2-2'}}
+                <br>Attack Strength out of 1,000,000: {{hero.attackStrength | number}}
+                <br>Defend Strength out of 1,000,000: {{hero.defendStrength | number}}
+                <br>Date of Birth: {{hero.birthday | date:'short'}}
+                <br>
+                <span *ngIf="isEven">If Thanos were to snap, this character would Die</span>
+                <span *ngIf="!isEven">If Thanos were to snap, this character would Survive</span>
+                <br>
+                <button (click)="removeHero(hero)"> Remove</button>
+            </td>
+        </li></tr>
     </ul>
 </table>
 <div (click)="onDivClicked()">
     <button (click)="onClickMe($event)" [style.background-color]="blue ? '#00f':'#000'" class="btn btn-primary">Click Me!</button>
 </div>
 <input [(ngModel)]="dummyText" (keyup.enter)="onKeyUp()"/>
-<h2>But my favourite superhero is: {{hero.name | lowercase}}</h2>
-<br>Rating out of 10: {{hero.rating | number:'1.2-2'}}
-<br>Attack Strength out of 1,000,000: {{hero.attackStrength | number}}
-<br>Defend Strength out of 1,000,000: {{hero.defendStrength | number}}
-<br>Date of Birth: {{hero.birthday | date:'short'}}
+

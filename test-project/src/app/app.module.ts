@@ -13,6 +13,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { MyTitleCasePipe } from './feedback/myTitleCase.pipe';
 import { LocationComponent } from './location/location.component';
 import { SupermanFeedbackComponent } from './superman-feedback/superman-feedback.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { SupermanFeedbackComponent } from './superman-feedback/superman-feedback
     FeedbackComponent,
     MyTitleCasePipe,
     LocationComponent,
-    SupermanFeedbackComponent
+    SupermanFeedbackComponent,
+    EquipmentComponent,
+    InputFormatDirective,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+<div (click)="onClick()" class="zippy-container">
+    <span class="large">{{title}} </span>
+    <span class="glyphicon" [class.glyphicon-triangle-top]="showContent" [class.glyphicon-triangle-bottom]="!showContent" *ngIf="title"></span>
+</div>
+<div *ngIf="showContent">
+    <br><h3>{{content}}</h3>
+</div>

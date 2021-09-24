@@ -1,0 +1,19 @@
+<h2>Equipment for your hero</h2>
+
+<ul class="nav nav-pills">
+    <li [class.selected-equipment]="equipmentType==='weapons'"><button (click)="equipmentType='weapons'">Weapons</button></li>
+    <li [class.selected-equipment]="equipmentType==='armour'"><button (click)="equipmentType='armour'">Armour</button></li>
+    <li [class.selected-equipment]="equipmentType===''"><button (click)="equipmentType=''">None</button></li>
+</ul>
+<div [ngSwitch]="equipmentType">
+    <div *ngSwitchCase="'weapons'">
+        <zippy title="{{equipmentType}}" content="Here are your hero or villain's weapons"> </zippy>
+    </div>
+    <div *ngSwitchCase="'armour'">
+        <zippy title="{{equipmentType}}" content="Here are your hero or villain's armour sets"> </zippy>
+    </div>
+    <div *ngSwitchDefault>
+        <h3>You are not seeing your hero or villain's armour sets nor weapons</h3>
+        <zippy title="{{equipmentType}}" content=""> </zippy>
+    </div>
+</div>

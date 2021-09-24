@@ -3,5 +3,17 @@
 <input [(ngModel)]="feedbackText" (keyup)="updateFeedbackText($event)">
 {{feedbackText | titleCase}}
 <div> 
-    <span checkbox class="glyphicon" [class.glyphicon-ok]="checkedReview" [class.glyphicon-remove]="!checkedReview" (click)="toggleReview()"></span>
+    <span checkbox class="glyphicon"[ngClass]="{
+        'glyphicon-ok': checkedReview,
+        'glyphicon-remove':!checkedReview
+    }" (click)="toggleReview()"></span>
 </div>
+<button [ngStyle]="{
+    'backgroundColor': canSubmit ? '#080':'#f00',
+    'color': canSubmit ? '#fff':'#500',
+    'fontWeight': canSubmit ? '#555':'#ff0'
+}"> Submit</button>
+<br>
+<h4>Write your name here</h4>
+<input type="text" [appInputFormat]="'uppercase'">
+<br>

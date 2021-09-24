@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent{
-
+  canSubmit = false;
   feedbackText: string;
   @Input('goodReview') checkedReview!: boolean;
   @Output('change') click = new EventEmitter();

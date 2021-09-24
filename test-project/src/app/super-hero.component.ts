@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SuperHeroService } from './super-hero.service';
 
 //render this component with these properties
@@ -14,25 +14,9 @@ export class SuperHeroeComponent{
     title = "heroes";
     imageURL = 'https://static.wikia.nocookie.net/dc-superherogirls/images/5/5e/Wonder_Woman_Idle.png';
     blue = true;
-    heroes;
-    whatIsAHero = "A hero is a really really really reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally really heroic person"
+    whatAreMyHeroes = "My heroes are really really really reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally really heroic people"
     dummyText = "blahgfkhgfkhgf";
-    hero: Hero = {
-        name:"Iron Man",
-        rating:9.0434121211,
-        attackStrength:300000,
-        defendStrength:1000000,
-        birthday: new Date("1930-10-11")        
-    }
-
-    /**
-     * 
-     * @param service is a service that Angular creates that helps define objects in SuperHeroComponent
-     * 
-     */
-    constructor(service: SuperHeroService, ){
-        this.heroes = service.getHeroes();
-    }
+    @Input() heroes!: Hero[];
 
     onClickMe($event: any){
         $event.stopPropagation()
@@ -43,6 +27,36 @@ export class SuperHeroeComponent{
     }
     onKeyUp(){
         console.log(this.dummyText)
+    }
+    addHero(){
+        this.heroes.push({
+            name:"Spiderman",
+            rating:12.51,
+            attackStrength:31,
+            defendStrength:266026,
+            birthday: new Date("1984-05-05")  
+        });
+    }
+
+    /**
+     * 
+     * @param hero is the Hero we want to remove from heroes
+     * 
+     * This method removes hero from the heroes array
+     */
+    removeHero(hero: Hero){
+        this.heroes.splice(this.heroes.indexOf(hero) ,1);
+    }
+
+    /**
+     * 
+     * @param index is the index of the hero in heroes
+     * @param hero is the hero object with the index of index in heroes
+     * 
+     * This method returns the hero's name in order to help angular track the list of heroes
+     */
+    trackHero(index: number, hero: Hero){
+        return hero.name;
     }
 
 }
