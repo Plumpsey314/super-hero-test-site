@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { SuperHeroService } from './super-hero.service';
 
 //render this component with these properties
 @Component({
@@ -10,33 +9,13 @@ import { SuperHeroService } from './super-hero.service';
     templateUrl: './super-hero.component.html'
 })
 
-export class SuperHeroeComponent{
+export class SuperHeroComponent{
     title = "heroes";
     imageURL = 'https://static.wikia.nocookie.net/dc-superherogirls/images/5/5e/Wonder_Woman_Idle.png';
     blue = true;
     whatAreMyHeroes = "My heroes are really really really reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally really heroic people"
-    dummyText = "blahgfkhgfkhgf";
+    dummyText = "Hero's Name";
     @Input() heroes!: Hero[];
-
-    onClickMe($event: any){
-        $event.stopPropagation()
-        console.log("A button was clicked", $event);
-    }
-    onDivClicked(){
-        console.log("div was clicked")
-    }
-    onKeyUp(){
-        console.log(this.dummyText)
-    }
-    addHero(){
-        this.heroes.push({
-            name:"Spiderman",
-            rating:12.51,
-            attackStrength:31,
-            defendStrength:266026,
-            birthday: new Date("1984-05-05")  
-        });
-    }
 
     /**
      * 

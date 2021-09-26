@@ -5,3 +5,7 @@ body{
     padding-left: 30px;
     padding-bottom: 30px;
 }
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid #f00;
+}

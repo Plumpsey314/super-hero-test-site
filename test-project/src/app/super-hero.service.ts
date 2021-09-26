@@ -1,3 +1,5 @@
+import {Hero} from './super-hero.component'
+
 export class SuperHeroService{
     constructor(){
 
@@ -6,7 +8,7 @@ export class SuperHeroService{
     /**
      * returns a list of superheroes
      */
-    getHeroes(){
+    getHeroes():Hero[]{
         return [
             {
               name:"Black Panther",
@@ -29,5 +31,41 @@ export class SuperHeroService{
               birthday: new Date("1930-10-14")    
             }   
           ];
+    }
+
+    /**
+     * returns a list of superheroes that is not initially displayed when heroes are loaded
+    */
+    getExtraHeroes():Hero[]{
+      return[
+        {
+          name:"Groot",
+          rating:5,
+          attackStrength:1000000,
+          defendStrength:600341,
+          birthday: new Date("2000-01-01")    
+        },
+        {
+          name:"Gamora",
+          rating:6,
+          attackStrength:123041,
+          defendStrength:53058,
+          birthday: new Date("1993-12-04")    
+        },
+        {
+          name:"Spiderman",
+          rating:6.51,
+          attackStrength:31,
+          defendStrength:266026,
+          birthday: new Date("1984-05-05")
+        },
+        {
+          name:"Yondu",
+          rating:7,
+          attackStrength:127777,
+          defendStrength:731347,
+          birthday: new Date("1984-04-30") 
+        }
+      ]
     }
 }

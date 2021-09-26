@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShortenPipe } from './shorten.pipe';
-import { SuperHeroeComponent } from './super-hero.component';
+import { SuperHeroComponent } from './super-hero.component';
 import { SuperHeroService } from './super-hero.service';
 import { SuperVillainComponent } from './super-villain/super-villain.component';
 import { SuperVillainService } from './super-villain/super-villain.service';
@@ -16,11 +16,12 @@ import { SupermanFeedbackComponent } from './superman-feedback/superman-feedback
 import { EquipmentComponent } from './equipment/equipment.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
+import { AddHeroComponent } from './add-hero/add-hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SuperHeroeComponent,
+    SuperHeroComponent,
     SuperVillainComponent,
     ShortenPipe,
     FeedbackComponent,
@@ -29,7 +30,8 @@ import { ZippyComponent } from './zippy/zippy.component';
     SupermanFeedbackComponent,
     EquipmentComponent,
     InputFormatDirective,
-    ZippyComponent
+    ZippyComponent,
+    AddHeroComponent
   ],
   imports: [
     BrowserModule,

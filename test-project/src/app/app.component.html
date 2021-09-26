@@ -4,11 +4,11 @@
 <div [hidden]="post.heroes.length===0">
     Heros:
     <hero [heroes]="post.heroes"></hero>
+    <villain></villain>
 </div>
 <div [hidden]="post.heroes.length>0">
     You do not have any heroes   
 </div>
-<villain></villain>
 <feedback [goodReview]="post.goodReview" (change)="onFeedbackChange($event)"></feedback>
 <span class="glyphicon glyphicon-user"></span>
 <bootstrap-location >

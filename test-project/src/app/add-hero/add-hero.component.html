@@ -1,0 +1,113 @@
+<form #form="ngForm" (ngSubmit)="addHero($event)">
+    <h3>Add a hero</h3>
+    <div class="form-group">
+        <label for="heroToAdd"></label>
+        <select [(ngModel)]="selectedOption" name="heroToAdd" id="heroToAdd">
+            <option [ngValue]=0></option>
+            <option [ngValue]=1>I want to create a custom Hero</option>
+            <option *ngFor="let hero of heroes; index as i" [ngValue]="i+2">{{hero.name}}</option>
+        </select>
+    </div>
+    <div *ngIf="form.value.heroToAdd===1">
+        <div class="form-group">
+            <h4>Type in the information of the hero you want to add</h4>
+            <div>
+                <label for="name"> Hero's Name</label>
+                <input 
+                 required
+                 minlength="3"
+                 type="string"
+                 [(ngModel)]="heroName"
+                 name="heroName"
+                 #name="ngModel"
+                 (keyup.enter)="onKeyUp()"
+                 class="form-control"/>
+                <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                    <div *ngIf="name.errors?.required">Hero's Name is required </div>
+                    <div *ngIf="name.errors?.minlength">
+                        Your name needs to be at least {{name.errors?.minlength.requiredLength}} characters
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="heroRating"> Hero's Rating out of 10</label>
+                <input 
+                    required
+                    type="number"
+                    min="0"
+                    max="10"
+                    [(ngModel)]="heroRating"
+                    name="heroRating"
+                    #rating="ngModel"
+                    class="form-control"/>
+                <div class="alert alert-danger" *ngIf="rating.touched && !rating.valid">
+                    <div *ngIf="rating.errors?.required">Hero's Rating is required, and it must be a number </div>
+                    <div *ngIf="rating.errors?.min"> Your hero's rating must be a positive number</div>
+                    <div *ngIf="rating.errors?.max"> Your hero's rating must be at most 10</div>
+                </div>
+            </div>
+            <div>
+                <label for="heroAttackStrength"> Hero's Attack Strength out of 1,000,000 </label>
+                <input 
+                    required
+                    type="number"
+                    min="0"
+                    max="1000000"
+                    [(ngModel)]="heroAttackStrength"
+                    name="heroAttackStrength"
+                    #attackStrength="ngModel"
+                    class="form-control"/>
+                <div class="alert alert-danger" *ngIf="attackStrength.touched && !attackStrength.valid">
+                    <div *ngIf="attackStrength.errors?.required">Hero's attack strength is required, and it must be a number </div>
+                    <div *ngIf="attackStrength.errors?.min"> Your hero's attack strength must be a positive number</div>
+                    <div *ngIf="attackStrength.errors?.max"> Your hero's attack strength must be at most 1,000,000</div>
+                </div>
+            </div>
+            <div>
+                <label for="heroDefendStrength"> Hero's Defend Strength out of 1,000,000 </label>
+                <input 
+                    required
+                    type="number"
+                    min="0"
+                    max="1000000"
+                    [(ngModel)]="heroDefendStrength"
+                    name="heroDefendStrength"
+                    #defendStrength="ngModel"
+                    class="form-control"/>
+                <div class="alert alert-danger" *ngIf="defendStrength.touched && !defendStrength.valid">
+                    <div *ngIf="defendStrength.errors?.required">
+                        Hero's defense strength is required, and it must be a number
+                    </div>
+                    <div *ngIf="defendStrength.errors?.min"> Your hero's defense strength must be a positive number</div>
+                    <div *ngIf="defendStrength.errors?.max"> Your hero's defense strength must be at most 1,000,000</div>
+                </div>
+            </div>
+            <div>
+                <label for="heroBirthday"> Hero's Birthday </label>
+                <input 
+                    required
+                    type="date"
+                    [(ngModel)]="heroBirthday"
+                    name="heroBirthday"
+                    #birthday="ngModel"
+                    class="form-control"/>
+                <div class="alert alert-danger" *ngIf="birthday.touched && !birthday.valid"> Hero's Birthday is required </div>
+            </div>
+        </div>
+    </div>   
+    <p>
+        <span>This is what the add hero form object's value is:</span>
+        <br>
+        {{form.value | json}}
+    </p>
+    <div (click)="onDivClicked()">
+        <button 
+            type="submit"
+            value="Submit"
+            [disabled]="!form.valid"            
+            [style.background-color]="btnStyleOn ? '#00f':'#000'"
+            class="btn btn-primary">
+            Add Hero
+        </button>
+    </div>
+</form>

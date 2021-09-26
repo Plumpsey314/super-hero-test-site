@@ -1,19 +1,72 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <h2>What did you think of this app?</h2>
-<input [(ngModel)]="feedbackText" (keyup)="updateFeedbackText($event)">
-{{feedbackText | titleCase}}
-<div> 
-    <span checkbox class="glyphicon"[ngClass]="{
-        'glyphicon-ok': checkedReview,
-        'glyphicon-remove':!checkedReview
-    }" (click)="toggleReview()"></span>
-</div>
-<button [ngStyle]="{
-    'backgroundColor': canSubmit ? '#080':'#f00',
-    'color': canSubmit ? '#fff':'#500',
-    'fontWeight': canSubmit ? '#555':'#ff0'
-}"> Submit</button>
-<br>
-<h4>Write your name here</h4>
-<input type="text" [appInputFormat]="'uppercase'">
-<br>
+<form #form="ngForm" (ngSubmit)="submit(form)">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+        <div *ngIf="!contact.valid && contact.touched" class="alert alert-danger">
+            <h4>This group has an error!</h4>
+        </div>
+        <div class="form-group">
+            <label for="name">Write your name here</label>
+            <input 
+                required
+                minlength="3"
+                maxlength="100"
+                pattern="nathan"
+                ngModel name="name"
+                #name="ngModel"
+                (change)="onNameUpdate(name)"
+                [appInputFormat]="'uppercase'"
+                type="text"
+                id="name"
+                class="form-control"
+            >
+            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                 <div *ngIf="name.errors?.required">Name is required </div>
+                 <div *ngIf="name.errors?.minlength">
+                     Your name needs to be at least {{name.errors?.minlength.requiredLength}} characters
+                 </div>
+                 <div *ngIf="name.errors?.pattern">nathan is the only valid name </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="feedbackDescription">{{feedbackText | titleCase}}</label>
+        <textarea [(ngModel)]="feedbackText" name="feedbackText" id="feedbackDescription" class="form-control"></textarea>
+    </div>
+    <div class="checkbox"> 
+        <label>
+            <input  type="checkbox" ngModel name="isGoodReview" id="isGoodReview" (click)="toggleReview()">
+             Did you like this webpage
+        </label>
+        <span checkbox class="glyphicon"[ngClass]="{
+            'glyphicon-ok': checkedReview,
+            'glyphicon-remove':!checkedReview
+        }"></span>
+    </div>
+    <div class="from-group">
+        <label for="perferedContactMethod">How would you like us to contact you?</label>
+        <br>
+        <select  ngModel name="perferedContactMethod" id="perferedContactMethod" class="form-control">
+            <option *ngFor="let contactMethod of contactMethods" [ngValue]="contactMethod">{{contactMethod.name}}</option>
+        </select>
+    </div>
+    <h4>Who is your favourite Character?</h4>
+    <div *ngFor="let character of characters" class="radio"><label>
+        <input type="radio" ngModel name="favouriteCharacter" [value]="character.id">
+        {{character.name}}
+    </label></div>
+    <br>
+    <p>
+        <span>This is what the form object's value is:</span>
+        <br>
+        {{form.value | json}}
+    </p>
+    <button 
+    [ngStyle]="{
+        'backgroundColor': canSubmit ? '#080':'#f00',
+        'color': canSubmit ? '#fff':'#500',
+        'fontWeight': canSubmit ? '#555':'#ff0'
+    }"
+    [disabled]="!form.valid"
+    > Submit</button>
+</form>
