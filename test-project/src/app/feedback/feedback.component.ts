@@ -1,9 +1,10 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'feedback',
+  selector: 'app-feedback',
   templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.css']
+  styleUrls: ['./feedback.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class FeedbackComponent{
   canSubmit = false;

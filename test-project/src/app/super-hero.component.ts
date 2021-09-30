@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 //render this component with these properties
 @Component({
@@ -9,7 +10,7 @@ import { Component, Input } from '@angular/core';
     templateUrl: './super-hero.component.html'
 })
 
-export class SuperHeroComponent{
+export class SuperHeroComponent implements OnInit{
     title = "heroes";
     imageURL = 'https://static.wikia.nocookie.net/dc-superherogirls/images/5/5e/Wonder_Woman_Idle.png';
     blue = true;
@@ -17,6 +18,11 @@ export class SuperHeroComponent{
     dummyText = "Hero's Name";
     @Input() heroes!: Hero[];
 
+    constructor(private route: ActivatedRoute){}
+
+    ngOnInit(){
+
+    }
     /**
      * 
      * @param hero is the Hero we want to remove from heroes

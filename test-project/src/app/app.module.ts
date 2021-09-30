@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,15 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { BattleFieldsComponent } from './battle-fields/battle-fields.component';
+import { BattlesComponent } from './battles/battles.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { BattleComponent } from './battle/battle.component';
+import { BattleService } from './battle.service';
+import { BirthdayComponent } from './birthday/birthday.component';
 
 @NgModule({
   declarations: [
@@ -31,17 +41,52 @@ import { AddHeroComponent } from './add-hero/add-hero.component';
     EquipmentComponent,
     InputFormatDirective,
     ZippyComponent,
-    AddHeroComponent
+    AddHeroComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    BattleFieldsComponent,
+    BattlesComponent,
+    HomePageComponent,
+    BattleComponent,
+    BirthdayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomePageComponent
+      },
+      {
+        path: 'birthday/:hero/:birthdate',
+        component: BirthdayComponent
+      },
+      {
+        path: 'battleFields',
+        component: BattleFieldsComponent
+      },
+      {
+        path: 'battles/:id/:body',
+        component: BattleComponent
+      },
+      {
+        path: 'battles',
+        component: BattlesComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   //classes that are needed to be created for components
   providers: [
     SuperHeroService,
-    SuperVillainService
+    SuperVillainService,
+    BattleService
   ],
   bootstrap: [AppComponent]
 })

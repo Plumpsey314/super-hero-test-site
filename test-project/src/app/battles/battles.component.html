@@ -1,0 +1,13 @@
+<h1>Here are your battles:</h1>
+<div *ngIf="battles">
+    <ul>
+        <li><a [routerLink]="['/battles', battles[0].id, battles[0].body]">
+            <img src="https://3.bp.blogspot.com/-b3M2oDCTCBY/XEQG-1l2wGI/AAAAAAAAA6c/V3PL_Q60j9sA2WxB84tp8wD63VXiPeppACKgBGAs/w5120-h2880-c/fantasy-warrior-epic-battle-5-4k.jpg">
+            {{(battles[0]).body}} 
+        </a></li>
+        <li><a [routerLink]="['/battles', battles[1].id, battles[1].body]">
+            <img src="https://assets2.rockpapershotgun.com/planetside-arena-announced-1.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/planetside-arena-announced-1.jpg">
+            {{(battles[1]).body}} 
+        </a></li>
+    </ul>
+</div>

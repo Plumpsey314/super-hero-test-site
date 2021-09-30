@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css');
 
 body{
     padding-left: 30px;
     padding-bottom: 30px;
+    font-size: medium;
 }
 
 .form-control.ng-touched.ng-invalid{

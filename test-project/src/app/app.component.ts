@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { feedbackData } from './feedback/feedback.component';
-import { Hero} from './super-hero.component';
-import { SuperHeroService } from './super-hero.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +6,6 @@ import { SuperHeroService } from './super-hero.service';
 })
 export class AppComponent {
   title = 'Angular test-project';
-
   constructor(){
     let first: boolean = true;
     window.addEventListener('DOMContentLoaded', (event)=>{
@@ -26,20 +21,5 @@ export class AppComponent {
         childEvent.stopPropagation();
       });
     }
-  }
-
-  post = {
-    title: this.title,
-    goodReview: false,
-    numberOfVotes: 1040,
-    heroes: [] as Hero[]
-  }
-
-  onFeedbackChange(args: feedbackData){
-    console.log(args);
-  }
-  loadHeroes(){
-    const service= new SuperHeroService();
-    this.post.heroes = service.getHeroes();
   }
 }

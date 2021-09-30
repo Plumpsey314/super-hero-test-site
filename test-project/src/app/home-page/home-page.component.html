@@ -1,0 +1,15 @@
+<h2>Heroes and Villians</h2>
+<button [style.background-color]="'#00f'" class="btn btn-primary" (click)=loadHeroes()>Load Heroes</button>
+<div [hidden]="post.heroes.length===0">
+    Heros:
+    <hero [heroes]="post.heroes"></hero>
+    <villain></villain>
+</div>
+<div [hidden]="post.heroes.length>0">
+    You do not have any heroes   
+</div>
+<app-feedback [goodReview]="post.goodReview" (change)="onFeedbackChange($event)"></app-feedback>
+<span class="glyphicon glyphicon-user"></span>
+<superman-feedback [votes]="post.numberOfVotes"></superman-feedback>
+<br>
+<equipment></equipment>

@@ -12,7 +12,8 @@
                 <br>Rating out of 10: {{hero.rating | number:'1.2-2'}}
                 <br>Attack Strength out of 1,000,000: {{hero.attackStrength | number}}
                 <br>Defend Strength out of 1,000,000: {{hero.defendStrength | number}}
-                <br>Date of Birth: {{hero.birthday | date:'short'}}
+                <br>
+                <a [routerLink]="['/birthday', hero.name, hero.birthday.toString()]">Date of Birth: {{hero.birthday | date:'short'}}</a>
                 <br>
                 <span *ngIf="isEven">If Thanos were to snap, this character would Die</span>
                 <span *ngIf="!isEven">If Thanos were to snap, this character would Survive</span>
