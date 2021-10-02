@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'navbar',
@@ -7,6 +8,10 @@ import { Component} from '@angular/core';
 })
 export class NavbarComponent{
 
-  constructor() { }
+  backgroundColor: string;
+
+  constructor() { 
+    this.backgroundColor = environment.navBackgroundColor;
+  }
 
 }

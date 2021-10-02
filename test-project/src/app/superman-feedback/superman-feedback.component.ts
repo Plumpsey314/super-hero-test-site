@@ -10,7 +10,7 @@ export class SupermanFeedbackComponent {
   isSelected!: boolean;
 
   toggleVote(){
-    this.isSelected = !this.isSelected
+    this.isSelected = !this.isSelected;
     this.votes=this.isSelected?this.votes+1:this.votes-1;
   }
 }

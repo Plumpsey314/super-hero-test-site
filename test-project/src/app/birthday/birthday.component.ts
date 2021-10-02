@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -18,7 +19,7 @@ export class BirthdayComponent implements OnInit {
     this.route.paramMap.subscribe(res =>{
       this.heroName = <string>res.get('hero');
       this.birthdate = <string>res.get('birthdate');
-    })
+    });
   }
 
   backToHeroes(){

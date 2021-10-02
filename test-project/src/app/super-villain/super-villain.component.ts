@@ -7,7 +7,7 @@ import { SuperVillainService } from './super-villain.service';
   styleUrls: ['./super-villain.component.css']
 })
 export class SuperVillainComponent implements OnInit {
-  title = "villians";
+  title = 'villians';
   villains;
 
   constructor(service: SuperVillainService) { 

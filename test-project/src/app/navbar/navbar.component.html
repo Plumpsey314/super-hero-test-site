@@ -1,10 +1,16 @@
 <span>This is your nav:</span>
-<nav class = "navbar navbar-default"><div class="container-fluid"><div class="collapse navbar-collapse"><ul class="nav navbar-nav">
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink=""> Home Page</a></li>
-    <li routerLinkActive="active"><a routerLink="battleFields"> Battlefields </a></li>
-    <li routerLinkActive="active"><a routerLink="battles"
-         [queryParams]="{
-             heroCombatant: 'Gamora',
-             villainCombatant: 'Dormamu'
-        }"> Battles</a></li>
-</ul></div></div></nav>
+<nav [style.background-color]="backgroundColor" class = "navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink=""> Home Page</a></li>
+                <li routerLinkActive="active"><a routerLink="battleFields"> Battlefields </a></li>
+                <li routerLinkActive="active"><a routerLink="battles"
+                    [queryParams]="{
+                        heroCombatant: 'Gamora',
+                        villainCombatant: 'Dormamu'
+                    }"> Battles</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

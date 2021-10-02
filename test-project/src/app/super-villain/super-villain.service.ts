@@ -9,6 +9,6 @@ export class SuperVillainService {
   }
 
   villains(){
-    return ["Thanos", "The Anti Monitor", "Loki", "Draco Malfroy", "Vegitables"]
+    return ['Thanos', 'The Anti Monitor', 'Loki', 'Draco Malfroy', 'Vegitables'];
   }
 }

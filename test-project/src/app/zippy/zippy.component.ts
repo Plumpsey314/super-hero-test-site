@@ -12,7 +12,7 @@ export class ZippyComponent{
   showContent: boolean=false;
 
   onClick(){
-    this.showContent=!this.showContent
+    this.showContent=!this.showContent;
   }
 
 }

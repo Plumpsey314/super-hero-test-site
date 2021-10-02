@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { SuperHeroComponent, Hero} from '../super-hero.component'
+import { SuperHeroComponent, Hero} from '../super-hero.component';
 import { SuperHeroService } from '../super-hero.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class AddHeroComponent {
 
   addHero($event: any){
     $event.stopPropagation();
-    let superHeroComponentHeroes: Hero[] = this.superHeroComponent.heroes;
+    const superHeroComponentHeroes: Hero[] = this.superHeroComponent.heroes;
     if(this.selectedOption){
       this.updateHeroNames();
       if(this.selectedOption === 1){
@@ -51,12 +51,12 @@ export class AddHeroComponent {
           });
         }
       }else if(!this.heroNames.includes(this.heroes[this.selectedOption-2].name)){
-        superHeroComponentHeroes.push(this.heroes[this.selectedOption-2])
+        superHeroComponentHeroes.push(this.heroes[this.selectedOption-2]);
       }
     }
   }
 
   onDivClicked(){
-      console.log("div was clicked")
+      console.log('div was clicked');
   }
 }

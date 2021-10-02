@@ -1,5 +1,5 @@
-import { Injectable, Inject} from '@angular/core';
-import { HttpClient } from '@angular/common/http' 
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; 
 
 @Injectable()
 export class BattleService {
@@ -9,13 +9,14 @@ export class BattleService {
   posts!: any[];
   private url;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private http: HttpClient) {
-    this.url = 'https://jsonplaceholder.typicode.com/posts'    
+    this.url = 'https://jsonplaceholder.typicode.com/posts'; 
   }
   
   createPost(input: any){
     this.http.post(this.url, JSON.stringify(input)).subscribe(res =>{
-      console.log(res)
+      console.log(res);
     });
   }
 
@@ -24,7 +25,7 @@ export class BattleService {
   }
 
   describeBattle(){
-    return this.hero + " is going to fight " + this.villain; 
+    return this.hero + ' is going to fight ' + this.villain; 
   }
 
   getBattles(){

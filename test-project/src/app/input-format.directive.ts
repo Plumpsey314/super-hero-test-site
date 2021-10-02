@@ -7,10 +7,11 @@ export class InputFormatDirective {
 
   @Input('appInputFormat') format!: string;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private el: ElementRef) {  }
 
-  @HostListener('blur') onBlur(format: string){
-    let value:string = this.el.nativeElement.value;
+  @HostListener('blur') onBlur(){
+    const value:string = this.el.nativeElement.value;
     switch(this.format){
       case 'lowercase':{
         this.el.nativeElement.value = value.toLowerCase();
@@ -20,9 +21,7 @@ export class InputFormatDirective {
         this.el.nativeElement.value = value.toUpperCase();
         break;
       }
-      default:{
-
-      }
+      default:
     }
   }
 }

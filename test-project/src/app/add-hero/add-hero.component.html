@@ -1,8 +1,9 @@
+
 <form #form="ngForm" (ngSubmit)="addHero($event)">
     <h3>Add a hero</h3>
     <div class="form-group">
         <label for="heroToAdd"></label>
-        <select [(ngModel)]="selectedOption" name="heroToAdd" id="heroToAdd">
+        <select [(ngModel)]="selectedOption" name="heroToAdd" id="heroToAdd"> -->
             <option [ngValue]=0></option>
             <option [ngValue]=1>I want to create a custom Hero</option>
             <option *ngFor="let hero of heroes; index as i" [ngValue]="i+2">{{hero.name}}</option>

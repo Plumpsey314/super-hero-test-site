@@ -8,10 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BattleComponent implements OnInit {
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(){
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
   }
 

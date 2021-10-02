@@ -28,7 +28,7 @@ export class FeedbackComponent{
   @Output('change') click = new EventEmitter();
 
   constructor() {
-    this.feedbackText="";
+    this.feedbackText='';
     this.contactMethods = [
       { 
         id:0,

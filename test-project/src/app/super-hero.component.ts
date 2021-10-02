@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 //render this component with these properties
 @Component({
@@ -11,14 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class SuperHeroComponent implements OnInit{
-    title = "heroes";
+    title = 'heroes';
     imageURL = 'https://static.wikia.nocookie.net/dc-superherogirls/images/5/5e/Wonder_Woman_Idle.png';
     blue = true;
-    whatAreMyHeroes = "My heroes are really really really reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally really heroic people"
-    dummyText = "Hero's Name";
+    whatAreMyHeroes = 'My heroes are really really really reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally reallyreally really heroic people'
+    dummyText = 'Hero\'s Name';
     @Input() heroes!: Hero[];
 
-    constructor(private route: ActivatedRoute){}
+    constructor(){}
 
     ngOnInit(){
 
